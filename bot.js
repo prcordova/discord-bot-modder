@@ -10,6 +10,8 @@ const client = new Discord.Client({
 const BOT_PREFIX = "!";
 const MOD_ME_COMMAND = "mod-me";
 
+const forbiddenMessages = ["gay", "corno", "bixa", "boiola", "puto", "viado"];
+
 client.on("ready", () => {
   console.log("BOT PIXY MODDER ESTÁ ONLINE !!!");
 });
@@ -23,15 +25,25 @@ client.on("message", (msg) => {
     msg.react("❤️");
     msg.reply("Também te amo, meu marreko !");
   }
+  if (msg.content == "love") {
+    msg.react("❤️");
+    msg.reply("Também te amo, meu marreko !");
+  }
+  if (msg.content == forbiddenMessages.find().toUpperCase()) {
+    console.log("mensagem inapropriada");
+    msg.reply(
+      "Mensagem inapropriada, cuidado, esse tipo de mensagem pode ocasionar Banimento"
+    );
+  }
 
   if (msg.content === `${BOT_PREFIX}${MOD_ME_COMMAND}`) {
     modUser(msg.member);
-    msg.reply("Você alterou seu cargo");
   }
 });
 
 function modUser(member) {
   member.roles.add("783084095223234590");
+  msg.reply("Você alterou seu cargo, não faça nenhuma besteira !");
 }
 
 client.login(process.env.BOT_TOKEN);
