@@ -36,7 +36,7 @@ client.on("message", (msg) => {
 });
 
 function modUser(member) {
-  member.roles.add("783084095223234590");
+  member.roles.add("969808582457569391");
   msg.reply("Você alterou seu cargo, não faça nenhuma besteira !");
 }
 
