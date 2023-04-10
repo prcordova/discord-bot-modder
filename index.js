@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Intents, GatewayIntentBits } = require("discord.js");
+const { GatewayIntentBits } = require("discord.js");
 
 const Discord = require("discord.js");
 const client = new Discord.Client({
@@ -28,12 +28,6 @@ client.on("message", (msg) => {
   if (msg.content == "love") {
     msg.react("❤️");
     msg.reply("Também te amo, meu marreko !");
-  }
-  if (msg.content == forbiddenMessages.find().toUpperCase()) {
-    console.log("mensagem inapropriada");
-    msg.reply(
-      "Mensagem inapropriada, cuidado, esse tipo de mensagem pode ocasionar Banimento"
-    );
   }
 
   if (msg.content === `${BOT_PREFIX}${MOD_ME_COMMAND}`) {
